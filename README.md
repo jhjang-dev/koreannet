@@ -29,7 +29,7 @@ package main
 import (
 	"sync"
 
-    "github.com/jhjjang/koreannet"
+    "github.com/jhjang-dev/koreannet"
 	"github.com/gin-gonic/gin"
 	_ "github.com/go-sql-driver/mysql"
 )
