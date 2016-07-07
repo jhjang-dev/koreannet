@@ -135,6 +135,7 @@ func Parse(wg *sync.WaitGroup, seq int, barcode string, id string, pw string) bo
 		sql = fmt.Sprintf("%s,BUSNID=?,PRODUCTURL=?,DATASOURCE=?,PRGUBUN=?,PACKGTIN=?", sql)
 
 		stmt, _ := db.Prepare(sql)
+		defer stmt.Close()
 		_, err := stmt.Exec(id, pw, q.Gtin, q.Dscrgtink, q.Npname, q.Conamek, q.Conamee, q.Dscrbrandk, q.Countrydescr, q.Dstartavailble, q.Dsysupdated, q.Imgpath1, q.Imgpath2, q.Imgpath3, q.Imgpath4, q.Pgurl, q.Detail_text, q.Kanclasscode, q.Unitnetcont, q.Unitnetcontuomdescr, q.Unitnetcontuom, q.Unitsinpack, q.Height, q.Heightuomdescr, q.Heightuom, q.Width, q.Widthuomdescr, q.Widthuom, q.Depth, q.Depthuomdescr, q.Depthuom, q.Netweight, q.Netweightuomdescr, q.Netweightuom, q.Grossweight, q.Grossweightuomdescr, q.Grossweightuom, q.Busnid, q.Producturl, q.Datasource, q.Prgubun, q.Packgtin)
 
 		if err != nil {
