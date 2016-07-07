@@ -7,6 +7,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"net/url"
 	"regexp"
 	"sync"
 	"time"
@@ -85,9 +86,17 @@ func Parse(wg *sync.WaitGroup, seq int, barcode string, id string, pw string) bo
 
 	fmt.Printf("Process Start Id : %v (%v)\n", seq, time.Now())
 
-	url := fmt.Sprintf("http://api.koreannet.or.kr/mobileweb/search/barcodeSearchXml.do?barcode=%s&id=%s&pw=%s", barcode, id, pw)
+	path := fmt.Sprintf("http://api.koreannet.or.kr/mobileweb/search/barcodeSearchXml.do?barcode=%s&id=%s&pw=%s", barcode, id, pw)
+	response, err := http.Get(path)
 
-	response, err := http.Get(url)
+	/***** if post method *****/
+	path := "http://yjjh7266.cafe24.com/xml.php"
+	urlData := url.Values{}
+	urlData.Set("barcode", barcode)
+	urlData.Set("id", id)
+	urlData.Set("pw", pw)
+	response, err := http.PostForm(path, urlData)
+	/**************************/
 
 	if err != nil {
 		log.Fatal(err)
