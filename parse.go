@@ -90,7 +90,7 @@ func Parse(wg *sync.WaitGroup, seq int, barcode string, id string, pw string) bo
 	response, err := http.Get(path)
 
 	/***** if post method *****/
-	path := "http://yjjh7266.cafe24.com/xml.php"
+	path := "http://api.koreannet.or.kr/mobileweb/search/barcodeSearchXml.do"
 	urlData := url.Values{}
 	urlData.Set("barcode", barcode)
 	urlData.Set("id", id)
