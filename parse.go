@@ -123,6 +123,16 @@ func Parse(wg *sync.WaitGroup, seq int, barcode string, id string, pw string) bo
 		result_flag = false
 	} else {
 
+	    	defer func() {
+			if err := recover(); err != nil {
+			    logFile, _ := os.OpenFile("/tmp/koreannet.log", os.O_APPEND|os.O_CREATE|os.O_RDWR, 0666)
+			    defer logFile.Close()
+
+			    log.SetOutput(logFile)
+			    log.Println(err)
+			}
+		}()
+
 		sql := "insert into barcode_product_info set ID=?, PW=?, GTIN=?, DSCRGTINK=?, NPNAME=?"
 		sql = fmt.Sprintf("%s,CONAMEK=?,CONAMEE=?,DSCRBRANDK=?,COUNTRYDESCR=?", sql)
 		sql = fmt.Sprintf("%s,DSTARTAVAILBLE=?,DSYSUPDATED=?,IMGPATH1=?,IMGPATH2=?", sql)
