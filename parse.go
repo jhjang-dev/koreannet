@@ -85,7 +85,7 @@ func Parse(wg *sync.WaitGroup, seq int, barcode string, id string, pw string) bo
 
 	fmt.Printf("Process Start Id : %v (%v)\n", seq, time.Now())
 
-	url := fmt.Sprintf("http://api.koreannet.or.kr/mobileweb/search/barcodeSearchXml.do?boarde=%s&id=%s&pw=%s", barcode, id, pw)
+	url := fmt.Sprintf("http://api.koreannet.or.kr/mobileweb/search/barcodeSearchXml.do?barcode=%s&id=%s&pw=%s", barcode, id, pw)
 
 	response, err := http.Get(url)
 
