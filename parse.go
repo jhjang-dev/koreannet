@@ -83,6 +83,16 @@ func Parse(wg *sync.WaitGroup, seq int, barcode string, id string, pw string) bo
 		log.Fatal(err)
 	}
 	defer db.Close()
+    
+    if err = db.Ping(); err != nil {
+		defer func() {
+			fmt.Println(err)
+			// if err := recover(); err != nil {
+			// 	log.Fatal(err)
+			// }
+		}()
+		return false
+	}
 
 	fmt.Printf("Process Start Id : %v (%v)\n", seq, time.Now())
 
@@ -119,11 +129,11 @@ func Parse(wg *sync.WaitGroup, seq int, barcode string, id string, pw string) bo
 	res := re.FindAllStringSubmatch(result, -1)
 
 	if len(res) > 0 {
-		fmt.Println("정보입력 오류")
+		fmt.Println(result)
 		result_flag = false
 	} else {
 
-	    	defer func() {
+	    defer func() {
 			if err := recover(); err != nil {
 			    logFile, _ := os.OpenFile("/tmp/koreannet.log", os.O_APPEND|os.O_CREATE|os.O_RDWR, 0666)
 			    defer logFile.Close()
