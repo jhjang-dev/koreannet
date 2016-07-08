@@ -1,7 +1,7 @@
 package main
 
 import (
-	"api/koreannet"
+	"github.com/jhjang-dev/koreannet"
 	"flag"
 	"fmt"
 	"os"
