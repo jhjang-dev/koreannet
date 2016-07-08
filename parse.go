@@ -84,7 +84,7 @@ func Parse(wg *sync.WaitGroup, seq int, barcode string, id string, pw string) bo
 	}
 	defer db.Close()
     
-    if err = db.Ping(); err != nil {
+        if err = db.Ping(); err != nil {
 		defer func() {
 			fmt.Println(err)
 			// if err := recover(); err != nil {
