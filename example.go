@@ -16,7 +16,7 @@ import (
 var wg sync.WaitGroup
 
 func main() {
-	mode := flag.String("mode", "single or server", "형식")
+	mode := flag.String("mode", "single or daemon", "실행형식")
 
 	flag.Parse()
 
@@ -25,7 +25,7 @@ func main() {
 		return
 	}
 
-	if *mode == "server" {
+	if *mode == "daemon" {
 		r := gin.Default()
 		r.GET("/search", func(c *gin.Context) {
 
