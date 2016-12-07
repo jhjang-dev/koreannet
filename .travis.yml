@@ -1,6 +1,5 @@
 language: go
 go:
   - 1.7
-  - master
 script:
-  go run example.go -mode=single aaa^^bbb^^ccc
+  go test -v ./...
