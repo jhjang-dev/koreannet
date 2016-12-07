@@ -1,7 +1,6 @@
 package main
 
 import (
-	"github.com/jhjang-dev/koreannet"
 	"flag"
 	"fmt"
 	"os"
