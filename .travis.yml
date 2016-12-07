@@ -2,3 +2,5 @@ language: go
 go:
   - 1.7
   - master
+script:
+  go run combine.go -mode=single aaa^^bbb^^ccc
