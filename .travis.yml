@@ -3,4 +3,4 @@ go:
   - 1.7
   - master
 script:
-  go run combine.go -mode=single aaa^^bbb^^ccc
+  go run example.go -mode=single aaa^^bbb^^ccc
