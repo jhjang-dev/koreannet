@@ -38,7 +38,7 @@ func main() {
 			var result bool
 			wg.Add(1)
 			go func(wg sync.WaitGroup, seq int, code string, id string, pw string) {
-				result = koreannet.Parse(&wg, seq, code, id, pw)
+				result = Parse(&wg, seq, code, id, pw)
 			}(wg, seq, code, id, pw)
 
 			c.JSON(200, gin.H{
@@ -78,7 +78,7 @@ func main() {
 			pw := result[2]
 
 			wg.Add(1)
-			go koreannet.Parse(&wg, seq, code, id, pw)
+			go Parse(&wg, seq, code, id, pw)
 
 			if seq%10 == 0 {
 				fmt.Println("wait:", seq)
