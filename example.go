@@ -14,7 +14,7 @@ import (
 
 var wg sync.WaitGroup
 
-func main() {
+func main_test() {
 	mode := flag.String("mode", "single or daemon", "실행형식")
 
 	flag.Parse()
