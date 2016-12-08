@@ -105,7 +105,7 @@ func Parse(wg *sync.WaitGroup, seq int, barcode string, id string, pw string) bo
 	urlData.Set("barcode", barcode)
 	urlData.Set("id", id)
 	urlData.Set("pw", pw)
-	response, err := http.PostForm(path, urlData)
+	response, err = http.PostForm(path, urlData)
 	/**************************/
 
 	if err != nil {
