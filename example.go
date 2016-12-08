@@ -1,4 +1,4 @@
-package main
+package main_test
 
 import (
 	"flag"
@@ -14,7 +14,7 @@ import (
 
 var wg sync.WaitGroup
 
-func main_test() {
+func main() {
 	mode := flag.String("mode", "single or daemon", "실행형식")
 
 	flag.Parse()
