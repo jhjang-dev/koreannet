@@ -19,7 +19,7 @@ var wg sync.WaitGroup
 func main(){
     seq := 1
     wg.Add(1)
-    result := koreannet.Parse(&wg,seq,code,id,pw)
+    result := Parse(&wg,seq,code,id,pw)
     wg.Wait()
 }
 ```
@@ -49,7 +49,7 @@ func main() {
 		var result bool
 		wg.Add(1)
 		go func(wg sync.WaitGroup, seq int, code string, id string, pw string) {
-			result = koreannet.Parse(&wg, seq, code, id, pw)
+			result = Parse(&wg, seq, code, id, pw)
 		}(wg, seq, code, id, pw)
 
 		c.JSON(200, gin.H{
