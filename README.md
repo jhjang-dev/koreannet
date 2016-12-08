@@ -1,6 +1,5 @@
-# 코리안넷 상품정보 조회
-
-
+[![Build Status](https://travis-ci.org/jhjang-dev/koreannet.svg?branch=master)](https://travis-ci.org/jhjang-dev/koreannet)
+# 코리안넷 상품정보 조회 
 
 ### 단위작업
 ```go
