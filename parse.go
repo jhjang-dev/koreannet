@@ -1,4 +1,4 @@
-package koreannet
+package main
 
 import (
 	"database/sql"
